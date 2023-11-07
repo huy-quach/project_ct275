@@ -2,8 +2,8 @@
 
 define('BASE_URL_PATH', '/');
 
-require_once __DIR__ . '/src/library.php';
-require_once __DIR__ . '/vendor/Psr4AutoloaderClass.php';
+require_once __DIR__ . '/src/helpers.php';
+require_once __DIR__ . '/libraries/Psr4AutoloaderClass.php';
 $loader = new Psr4AutoloaderClass;
 $loader->register();
 
