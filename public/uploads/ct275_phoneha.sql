@@ -50,7 +50,11 @@ INSERT INTO `dien_thoai` (`id`, `ten`, `gia`, `hinh`, `so_luong`, `ngay_nhap`, `
 (6, 'Samsung Galaxy S23 Ultra 5G', 22500000, 'samsung-galaxy_s23-ultra.jpg', 50, '2023-11-07 05:05:00', 2),
 (7, 'OPPO Find N3 5G', 45000000, 'oppo-find-n3.jpg', 50, '2023-11-07 05:06:26', 3),
 (8, 'OPPO Find N3 Flip 5G', 23000000, 'oppo-n3-flip.jpg', 50, '2023-11-07 05:07:22', 3),
-(9, 'OPPO Reno10 Pro+ 5G ', 20000000, 'oppo-reno10-pro-plus.jpg', 50, '2023-11-07 05:08:07', 3);
+(9, 'OPPO Reno10 Pro+ 5G ', 20000000, 'oppo-reno10-pro-plus.jpg', 50, '2023-11-07 05:08:07', 3),
+(10, 'Xiaomi', 45000000, 'xiaomi-13.jpg', 50, '2023-11-07 05:06:26', 4),
+(11, 'Xiaaomi 13T Pro', 23000000, 'xiaomi-13t-pro.jpg', 50, '2023-11-07 05:07:22', 4),
+(12, 'Xiaomi Redmi Note 12', 20000000, 'xiaomi-redmi-note-12.jpg', 50, '2023-11-07 05:08:07', 4)
+
 
 -- --------------------------------------------------------
 
@@ -85,7 +89,8 @@ CREATE TABLE `loai_dien_thoai` (
 INSERT INTO `loai_dien_thoai` (`id_loai`, `ten_loai`) VALUES
 (1, 'IPHONE'),
 (2, 'SAMSUNG'),
-(3, 'OPPO');
+(3, 'OPPO'),
+(4, 'XIAOMI');
 
 --
 -- Chỉ mục cho các bảng đã đổ

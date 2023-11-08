@@ -11,6 +11,7 @@ class dien_thoai
 	public $gia;
 	public $hinh;
 	public $id_loai;
+	public $ten_loai;
 	public $so_luong;
 	public $ngay_nhap;
 	private $errors = [];

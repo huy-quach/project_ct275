@@ -12,6 +12,9 @@ include __DIR__ . '/../function.php';
 
     <title>Trang chủ</title>
 
+    <!-- Custom Css  -->
+    <link rel="stylesheet" href=".//css/style.css">
+
     <!-- FontAwesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
@@ -19,13 +22,11 @@ include __DIR__ . '/../function.php';
     <link rel="shortcut icon" href="./uploads/favicon.png" type="image/x-icon">
 
     <!-- Jquery JS  -->
-    <script src="./js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="../css/style.css">
-
-    <!-- Custom Css  -->
-    <link rel="stylesheet" href="./css/custom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Design Font  -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -36,17 +37,13 @@ include __DIR__ . '/../function.php';
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
 
+    <!-- Style Script  -->
+    <script src=./js/style.js></script>
 </head>
 
 <body>
     <style>
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-    }
 
-    .dropdown>.dropdown-toggle:active {
-        pointer-events: none;
-    }
     </style>
     <!-- Loader  -->
     <div id="loader-wrapper">
@@ -74,7 +71,7 @@ include __DIR__ . '/../function.php';
                     </li>
                     &nbsp;
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="dien_thoai.php" id="navbarDropdown"
+                        <a class="nav-link dropdown-toggle active" href="product.php" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sản phẩm
                         </a>
@@ -114,4 +111,3 @@ include __DIR__ . '/../function.php';
         </div>
     </nav>
     <!-- End Header  -->
-    <script src=./js/custom.js></script>
