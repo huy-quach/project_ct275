@@ -1,7 +1,9 @@
 <?php
-require_once '../bootstrap.php';
-include __DIR__ . '/../function.php';
+require_once  '../bootstrap.php';
+include_once __DIR__ . '/../function.php';
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,39 +17,23 @@ include __DIR__ . '/../function.php';
     <!-- FontAwesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <!-- Favicon Icon Web  -->
-    <link rel="shortcut icon" href="./uploads/favicon.png" type="image/x-icon">
+    <!-- Bootstrap JS  -->
+    <script src="./js/bootstrap.js"></script>
 
     <!-- Jquery JS  -->
     <script src="./js/jquery.js"></script>
 
     <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
-    <!-- Custom Css  -->
+    <!-- Custom CSS Page  -->
     <link rel="stylesheet" href="./css/custom.css">
 
     <!-- Design Font  -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-    <!-- Bootstrap JS  -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
-
 </head>
 
 <body>
-    <style>
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-    }
-
-    .dropdown>.dropdown-toggle:active {
-        pointer-events: none;
-    }
-    </style>
     <!-- Loader  -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -90,17 +76,17 @@ include __DIR__ . '/../function.php';
                     </li>
                 </ul>
                 <form name="frm-search" class="d-flex">
-                    <input id="myInput" class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm"
-                        size="30">
-                    <button id="myBtnSearch" class="btn btn-outline-success me-1" type="submit">
+                    <input id="myInput" class="form-control me-2" name="words" type="search"
+                        placeholder="Tìm kiếm từ khóa..." aria-label="Search">
+                    <button id="myBtnSearch" class="btn btn-outline-success" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                     &nbsp;
-                    <button id="myBtnCart" class="btn btn-outline-success me-5" type="button">
+                    <button id="myBtnCart" class="btn btn-outline-success" type="button">
                         <i class="fa fa-shopping-basket"></i>
                     </button>
                 </form>
-                <div class="d-flex">
+                <div class="d-flex ms-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" href="login.php">Đăng nhập</a>
@@ -114,4 +100,4 @@ include __DIR__ . '/../function.php';
         </div>
     </nav>
     <!-- End Header  -->
-    <script src=./js/custom.js></script>
+   <script src=./js/custom.js></script>

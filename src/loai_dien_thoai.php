@@ -10,7 +10,7 @@ class loai_dien_thoai{
     public $ten_loai;
     private $errors=[];
 
-    public function getid_loai(){
+    public function getId(){
         return $this->id_loai;
     }
 
@@ -31,7 +31,7 @@ class loai_dien_thoai{
         return $this;
     }
 
-    public  function get_valid_loaiate_error(){
+    public  function get_validate_error(){
         return $this->errors;
     }
 

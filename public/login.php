@@ -1,5 +1,7 @@
 <?php
-include('../partials/header.php');
+require_once __DIR__ . "/../bootstrap.php";
+include_once __DIR__ . '/../partials/header.php';
+
 ?>
 <section class="vh-5 py-5" style="background-color: #9A616D;">
     <div class="container">
@@ -48,4 +50,4 @@ include('../partials/header.php');
 </section>
 <br>
 <hr>
-<?php include('../partials/footer.php') ?>
+<?php include_once __DIR__ . '/../partials/footer.php'; ?>
