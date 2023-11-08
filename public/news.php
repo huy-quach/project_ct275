@@ -1,9 +1,6 @@
 <?php
 include('../partials/header.php');
 ?>
-<style>
-    
-</style>
 <!-- Content Main  -->
     <section class="section first-section">
         <div class="container-fluid">
@@ -366,6 +363,7 @@ include('../partials/header.php');
                 </div>
             </div>
         </section>
+    <hr>
     <!-- End Content Main -->
 <!-- Footer  -->
 <?php include('../partials/footer.php') ?>

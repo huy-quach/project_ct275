@@ -3,7 +3,7 @@ a{
     text-decoration: none;
 }
 a.nav-link.active {
-    font-size: 18px;
+    font-size: 1000px;
 }
 a.nav-link.active:hover {
     color: #198754;
@@ -14,7 +14,7 @@ a.nav-link.active:hover {
     font-size: 30px;
     color: #198754 !important;
 
-}
+} 
 .translate-middle {
     transform: translate(-50%, -50%) !important;
 }
@@ -58,6 +58,9 @@ a.nav-link.active:hover {
 .input-group-text:hover {
     border: none;
     background-color: #47bf85;
+}
+.footer-style {
+    width: 100%;
 }
 /* End Footer  */
 
@@ -305,4 +308,4 @@ a.nav-link.active:hover {
 h4 > a.content-video {
     font-size: 20px;
 }
-/* End Content Main  */
+/* End Content Main 

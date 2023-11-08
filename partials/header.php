@@ -3,8 +3,6 @@ require_once '../bootstrap.php';
 include __DIR__ . '/../function.php';
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,23 +15,39 @@ include __DIR__ . '/../function.php';
     <!-- FontAwesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <!-- Bootstrap JS  -->
-    <script src="./js/bootstrap.js"></script>
+    <!-- Favicon Icon Web  -->
+    <link rel="shortcut icon" href="./uploads/favicon.png" type="image/x-icon">
 
     <!-- Jquery JS  -->
     <script src="./js/jquery.js"></script>
 
     <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-    <!-- Custom CSS Page  -->
+    <!-- Custom Css  -->
     <link rel="stylesheet" href="./css/custom.css">
 
     <!-- Design Font  -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap JS  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+
 </head>
 
 <body>
+    <style>
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        pointer-events: none;
+    }
+    </style>
     <!-- Loader  -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -41,7 +55,7 @@ include __DIR__ . '/../function.php';
         <div class="loader-section section-right"></div>
     </div>
     <!-- End Loader  -->
-    
+
     <!-- Header  -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container-fluid">
@@ -59,27 +73,45 @@ include __DIR__ . '/../function.php';
                         <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                     </li>
                     &nbsp;
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="dien_thoai.php" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sản phẩm
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- ?php foreach($loai_dien_thoai2 as $loai_dien_thoai) : ?  -->
+                            <a class="dropdown-item" href="#">Action</a>
+                            <!-- php endforeach  -->
+                        </div>
+                    </div>
+                    &nbsp;
                     <li class="nav-item">
                         <a class="nav-link active" href="news.php">Tin tức</a>
                     </li>
-                    &nbsp;
-                    <li class="nav-item">
-                        <a class="nav-link active" href="login.html">Đăng nhập</a>
-                    </li>
                 </ul>
                 <form name="frm-search" class="d-flex">
-                    <input id="myInput" class="form-control me-2" name="words" type="search"
-                        placeholder="Tìm kiếm từ khóa..." aria-label="Search">
-                    <button id="myBtnSearch" class="btn btn-outline-success" type="submit">
+                    <input id="myInput" class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm"
+                        size="30">
+                    <button id="myBtnSearch" class="btn btn-outline-success me-1" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                     &nbsp;
-                    <button id="myBtnCart" class="btn btn-outline-success" type="button">
+                    <button id="myBtnCart" class="btn btn-outline-success me-5" type="button">
                         <i class="fa fa-shopping-basket"></i>
                     </button>
                 </form>
+                <div class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="login.php">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active me-3" href="signup.php">Đăng ký</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
     <!-- End Header  -->
-   <script src=./js/custom.js></script>
+    <script src=./js/custom.js></script>
