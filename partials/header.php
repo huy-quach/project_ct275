@@ -1,6 +1,20 @@
 <?php
 require_once '../bootstrap.php';
 include __DIR__ . '/../function.php';
+
+use CT275\Labs\dien_thoai;
+use CT275\Labs\loai_dien_thoai;
+
+if (session_status() === PHP_SESSION_NONE) { 
+    session_start(); 
+}
+
+$loai_dien_thoai = new loai_dien_thoai($PDO);
+$loai_dien_thoai2 = $loai_dien_thoai->all();
+
+if(isset($_SESSION['carts'])){
+    $count = count($_SESSION['carts']);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -76,9 +90,11 @@ include __DIR__ . '/../function.php';
                             Sản phẩm
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- ?php foreach($loai_dien_thoai2 as $loai_dien_thoai) : ?  -->
-                            <a class="dropdown-item" href="#">Action</a>
-                            <!-- php endforeach  -->
+                            <?php foreach($loai_dien_thoai2 as $loai_dien_thoai) : ?> 
+                                <a class="dropdown-item" href="<?= BASE_URL_PATH ."product.php?id=".$loai_dien_thoai->getId()?>" value="<?= $loai_dien_thoai->getId() ?>">
+                                    <?= $loai_dien_thoai->ten_loai ?>
+                                </a>
+                            <?php endforeach ?>
                         </div>
                     </div>
                     &nbsp;
@@ -86,17 +102,25 @@ include __DIR__ . '/../function.php';
                         <a class="nav-link active" href="news.php">Tin tức</a>
                     </li>
                 </ul>
-                <form name="frm-search" class="d-flex">
-                    <input id="myInput" class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm"
+                <form class="d-flex" action="product.php">
+                    <input id="myInput" class="form-control me-2" type="search" id="search" name="search" value="<?php if(isset($_GET['search'])){ echo($_GET['search']);}?>" placeholder="Tìm kiếm sản phẩm"
                         size="30">
                     <button id="myBtnSearch" class="btn btn-outline-success me-1" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
-                    &nbsp;
-                    <button id="myBtnCart" class="btn btn-outline-success me-5" type="button">
-                        <i class="fa fa-shopping-basket"></i>
-                    </button>
                 </form>
+                <button id="myBtnCart" class="btn btn-outline-success me-5 d-flex align-items-center" type="button">
+                        <a href="cart.php" style="text-decoration: none;">
+                            <i class="fa fa-shopping-basket"></i>
+                            <span class="ms-2">
+                                <?php 
+                                    if(isset($count)){
+                                        echo $count;
+                                    }  else {echo 0;} 
+                                ?> 
+                            </span>
+                        </a>
+                </button>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">

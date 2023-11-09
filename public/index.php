@@ -1,5 +1,6 @@
 <?php
-include('../partials/header.php');
+require_once __DIR__ . '/../bootstrap.php';
+
 
 use CT275\Labs\dien_thoai; 
 use CT275\Labs\loai_dien_thoai;  
@@ -8,6 +9,8 @@ $dien_thoai = new dien_thoai($PDO);
 $dien_thoai2 = $dien_thoai->all(); 
 $loai_dien_thoai = new loai_dien_thoai($PDO); 
 $loai_dien_thoai2 = $loai_dien_thoai->all(); 
+
+include_once __DIR__ . '/../partials/header.php';
 
 ?>
 <!-- Content Main  -->
@@ -34,10 +37,11 @@ $loai_dien_thoai2 = $loai_dien_thoai->all();
                             <!-- Product Price  -->
                             <h4><?= number_format($dien_thoai->gia, 0, ',', '.') ?> VND</h4>
                             <!-- Add to Cart  -->
-                            <form action="">
-                                <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary">
+                            <form action="addCart.php?id=<?= $dien_thoai->getId() ?>" method="POST">
+                                <input type="submit" name="addCart" value="Thêm vào giỏ hàng" class="btn btn-primary">
                             </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -52,4 +56,4 @@ $loai_dien_thoai2 = $loai_dien_thoai->all();
 <!-- End Content Main  -->
 <!-- Footer  -->
 <hr>
-<?php include('../partials/footer.php') ?>
+<?php include __DIR__ . '/../partials/footer.php' ?> 

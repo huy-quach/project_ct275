@@ -21,6 +21,7 @@ a.nav-link.active:hover {
     font-size: 30px;
     color: #198754 !important;
 }
+
 .translate-middle {
     transform: translate(-50%, -50%) !important;
 }
