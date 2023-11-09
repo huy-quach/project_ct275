@@ -24,10 +24,8 @@ if(isset($_SESSION['carts'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Trang chủ</title>
-
     <!-- Custom Css  -->
-    <link rel="stylesheet" href=".//css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- FontAwesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -53,12 +51,14 @@ if(isset($_SESSION['carts'])){
 
     <!-- Style Script  -->
     <script src=./js/style.js></script>
+    <style>
+    a {
+        text-decoration: none;
+    }
+    </style>
 </head>
 
 <body>
-    <style>
-
-    </style>
     <!-- Loader  -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -85,15 +85,17 @@ if(isset($_SESSION['carts'])){
                     </li>
                     &nbsp;
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="product.php" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="product.php" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sản phẩm
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php foreach($loai_dien_thoai2 as $loai_dien_thoai) : ?> 
-                                <a class="dropdown-item" href="<?= BASE_URL_PATH ."product.php?id=".$loai_dien_thoai->getId()?>" value="<?= $loai_dien_thoai->getId() ?>">
-                                    <?= $loai_dien_thoai->ten_loai ?>
-                                </a>
+                            <?php foreach($loai_dien_thoai2 as $loai_dien_thoai) : ?>
+                            <a class="dropdown-item"
+                                href="<?= BASE_URL_PATH ."product.php?id=".$loai_dien_thoai->getId()?>"
+                                value="<?= $loai_dien_thoai->getId() ?>">
+                                <?= $loai_dien_thoai->ten_loai ?>
+                            </a>
                             <?php endforeach ?>
                         </div>
                     </div>
@@ -102,24 +104,26 @@ if(isset($_SESSION['carts'])){
                         <a class="nav-link active" href="news.php">Tin tức</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="product.php">
-                    <input id="myInput" class="form-control me-2" type="search" id="search" name="search" value="<?php if(isset($_GET['search'])){ echo($_GET['search']);}?>" placeholder="Tìm kiếm sản phẩm"
-                        size="30">
-                    <button id="myBtnSearch" class="btn btn-outline-success me-1" type="submit">
+                <form action="product.php" class="d-flex">
+                    <input id="myInput" class="form-control me-2" type="search" id="search" name="search"
+                        value="<?php if(isset($_GET['search'])){ echo($_GET['search']);}?>"
+                        placeholder="Tìm kiếm sản phẩm" size="30">
+                    <button class="btn btn-outline-success me-1" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
+                    &nbsp;
                 </form>
                 <button id="myBtnCart" class="btn btn-outline-success me-5 d-flex align-items-center" type="button">
-                        <a href="cart.php" style="text-decoration: none;">
-                            <i class="fa fa-shopping-basket"></i>
-                            <span class="ms-2">
-                                <?php 
+                    <a href="cart.php" class="align-items-center" style="text-decoration: none; color: #000;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class='badge badge-warning' id='lblCartCount'>
+                            <?php 
                                     if(isset($count)){
                                         echo $count;
                                     }  else {echo 0;} 
-                                ?> 
-                            </span>
-                        </a>
+                                ?>
+                        </span>
+                    </a>
                 </button>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">

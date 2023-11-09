@@ -1,6 +1,5 @@
 <?php
-require_once __DIR__ . '/../bootstrap.php';
-
+include('../partials/header.php');
 
 use CT275\Labs\dien_thoai; 
 use CT275\Labs\loai_dien_thoai;  
@@ -10,9 +9,9 @@ $dien_thoai2 = $dien_thoai->all();
 $loai_dien_thoai = new loai_dien_thoai($PDO); 
 $loai_dien_thoai2 = $loai_dien_thoai->all(); 
 
-include_once __DIR__ . '/../partials/header.php';
-
+$pageTitle = "Trang chủ";
 ?>
+<title><?php echo $pageTitle; ?></title>
 <!-- Content Main  -->
 <div class="container mt-5">
     <h2 style="text-align: center;">Sản phẩm mới nhất</h3>
@@ -41,7 +40,6 @@ include_once __DIR__ . '/../partials/header.php';
                                 <input type="submit" name="addCart" value="Thêm vào giỏ hàng" class="btn btn-primary">
                             </form>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -56,4 +54,4 @@ include_once __DIR__ . '/../partials/header.php';
 <!-- End Content Main  -->
 <!-- Footer  -->
 <hr>
-<?php include __DIR__ . '/../partials/footer.php' ?> 
+<?php include('../partials/footer.php') ?>

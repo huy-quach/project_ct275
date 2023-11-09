@@ -3,7 +3,12 @@ include('../partials/header.php');
 
 require_once __DIR__ . "/../bootstrap.php";
 include_once __DIR__ . '/../partials/header.php';
+
+$pageTitle = "Đăng nhập";
 ?>
+
+<title><?php echo $pageTitle; ?></title>
+
 <section class="vh-5 py-5" style="background-color: #9A616D;">
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center h-90">

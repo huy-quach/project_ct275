@@ -1,6 +1,10 @@
 <?php
-include_once __DIR__ . '/../partials/header.php';
+include('../partials/header.php');
+
+$pageTitle = "Tin tức";
 ?>
+<title><?php echo $pageTitle; ?></title>
+
 <!-- Content Main  -->
     <section class="section first-section">
         <div class="container-fluid">
@@ -366,4 +370,4 @@ include_once __DIR__ . '/../partials/header.php';
     <hr>
     <!-- End Content Main -->
 <!-- Footer  -->
-<?php include_once __DIR__ . '/../partials/footer.php' ?>
+<?php include('../partials/footer.php') ?>

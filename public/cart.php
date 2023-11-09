@@ -25,51 +25,55 @@ include_once __DIR__ . '/../partials/header.php';
                     <div class="card-title">
                         <h4 class="card-title text-center">CHI TIẾT ĐƠN HÀNG</h4>
                     </div>
-                    <hr>
-                    
-                    <table class="table table-warning text-center" style="border-color: #000;">
+                    <br>
+                    <table class="table text-center table-bordered border-primary" style="border-color: #000;">
                         <thead>
-                        <tr>
-                            <th scope="col" class="col-width_1">STT</th>
-                            <th scope="col" class="col-width_2">Tên SP</th>
-                            <th scope="col" class="col-width_1">Giá</th>
-                            <th scope="col" class="col-width_3">Hình SP</th>
-                            <th scope="col" class="col-width_2">Số lượng</th>
-                            <th scope="col" class="col-width_1">Hành động</th>
-                        </tr>
+                            <tr>
+                                <th scope="col" class="col-width_1">STT</th>
+                                <th scope="col" class="col-width_2">Tên SP</th>
+                                <th scope="col" class="col-width_1">Giá</th>
+                                <th scope="col" class="col-width_3">Hình SP</th>
+                                <th scope="col" class="col-width_2">Số lượng</th>
+                                <th scope="col" class="col-width_1">Hành động</th>
+                            </tr>
                         </thead>
                         <tbody class="align-middle">
-                        <?php $i = 1; ?>
-                        <?php  if(isset($_SESSION['carts'])){
+                            <?php $i = 1; ?>
+                            <?php  if(isset($_SESSION['carts'])){
                             foreach($_SESSION['carts'] as $cart){
                                 $total+=($cart['so_luong']*$cart['gia']);
                         ?>
                             <tr>
-                            <th scope="row"><?php echo $i++; ?></th>
-                            <td><?=$cart['ten'] ?></td>
-                            <td><?=number_format($cart['gia']*$cart['so_luong'], 0, ',', '.') ?>đ</td>
-                            <td><img src="./uploads/<?=$cart['hinh'] ?>" alt="..." style="width: 100px;"></td>
-                            <td>
-                                <div class="d-flex justify-content-center">
-                                <button class="m-2 border-0" style="background-color: #fff3cdff;">
-                                    <a href="<?=BASE_URL_PATH."addCart.php?tru=".$cart['id']?>"><i class="fa-solid fa-minus"></i></a>
-                                </button>
+                                <th scope="row"><?php echo $i++; ?></th>
+                                <td><?=$cart['ten'] ?></td>
+                                <td><?=number_format($cart['gia']*$cart['so_luong'], 0, ',', '.') ?>đ</td>
+                                <td><img src="./uploads/<?=$cart['hinh'] ?>" alt="..." style="width: 100px;"></td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="m-2" style="background: #fff; border: none;">
+                                            <a href="<?=BASE_URL_PATH."addCart.php?tru=".$cart['id']?>"><i
+                                                    class="fa-solid fa-minus"></i></a>
+                                        </button>
 
-                                <input id="form1" min="0"  value="<?=$cart['so_luong']?>" type="" class="form-control" style="width: 60px;" />
-                                
+                                        <input id="form1" min="0" value="<?=$cart['so_luong']?>" type=""
+                                            class="form-control" style="width: 60px;" />
 
-                                <button class="m-2 border-0" style="background-color: #fff3cdff;">
-                                    <a href="<?=BASE_URL_PATH."addCart.php?cong=".$cart['id']?>"><i class="fa-solid fa-plus"></i></a>
-                                </button>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="border-0" style="background-color: #fff3cdff;">
-                                <a href="<?=BASE_URL_PATH."addCart.php?xoa=".$cart['id']?>" style="color: #be1010; font-size: 1.5rem;"><i class="fa-solid fa-trash"></i></a>
-                                </button>
-                            </td>
+
+                                        <button class="m-2" style="background: #fff; border: none;">
+                                            <a href="<?=BASE_URL_PATH."addCart.php?cong=".$cart['id']?>"><i
+                                                    class="fa-solid fa-plus"></i></a>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button style="background: #fff; border: none;">
+                                        <a href="<?=BASE_URL_PATH."addCart.php?xoa=".$cart['id']?>"
+                                            style="color: #be1010; font-size: 1.5rem;"><i
+                                                class="fa-solid fa-trash"></i></a>
+                                    </button>
+                                </td>
                             </tr>
-                        <?php
+                            <?php
                             }
                             }else{
 
@@ -77,24 +81,24 @@ include_once __DIR__ . '/../partials/header.php';
                         ?>
                         </tbody>
                     </table>
-                    <hr>
 
                     <div class="d-flex justify-content-end">
-                        <span style="font-size: 20px; font-weight: 500; font-style: italic;">Tổng tiền = <?=number_format($total, 0, ',', '.')  ?>đ</span>
+                        <span style="font-size: 20px; font-weight: 500; font-style: italic;">Tổng tiền =
+                            <?=number_format($total, 0, ',', '.')  ?>đ</span>
                     </div>
 
                     <div class="d-flex my-2 justify-content-center">
                         <div class="me-2">
-                        <a href="<?=BASE_URL_PATH."addCart.php?xoaall=".$cart['id']?>" class="btn btn-danger">
-                            <i class="fa-solid fa-xmark"></i> Hủy đơn hàng
-                        </a>
+                            <a href="<?=BASE_URL_PATH."addCart.php?xoaall=".$cart['id']?>" class="btn btn-danger">
+                                <i class="fa-solid fa-xmark"></i> Hủy đơn hàng
+                            </a>
                         </div>
 
                         <div>
                             <form id="form" action="addCart.php?thanhtoan=1" method="post">
-                            <button class="btn btn-success" type="submit" >
-                                Hoàn tất đặt hàng
-                            </button>
+                                <button class="btn btn-success" type="submit">
+                                    Hoàn tất đặt hàng
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -105,15 +109,14 @@ include_once __DIR__ . '/../partials/header.php';
 </section>
 
 <script>
-  const form = document.querySelector('#form');
+const form = document.querySelector('#form');
 
-  form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     alert('Đặt hàng thành công!');
     form.submit();
-  });
+});
 </script>
 
-<?php include __DIR__ . '/../partials/footer.php' ?> 
-
+<?php include __DIR__ . '/../partials/footer.php' ?>

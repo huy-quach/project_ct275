@@ -1,19 +1,9 @@
 /* Header */
-.dropdown:hover>.dropdown-menu {
-    display: block;
-}
-
-.dropdown>.dropdown-toggle:active {
-    pointer-events: none;
-}
-a {
-    text-decoration: none;
-}
 a.nav-link.active {
     font-size: 18px;
 }
 a.nav-link.active:hover {
-    color: #198754;
+    color: #e74c3c;
 }
 .navbar-brand {
     color: #000;
@@ -21,9 +11,19 @@ a.nav-link.active:hover {
     font-size: 30px;
     color: #198754 !important;
 }
-
-.translate-middle {
-    transform: translate(-50%, -50%) !important;
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ccc;
+    color: #212934;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -5px;
 }
 /* End Header  */
 

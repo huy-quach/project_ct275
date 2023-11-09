@@ -1,6 +1,11 @@
 <?php
-include_once __DIR__ . '/../partials/header.php';
+include('../partials/header.php');
+
+$pageTitle = "Đăng ký";
 ?>
+
+<title><?php echo $pageTitle; ?></title>
+
 <section class="vh-5 py-5" style="background-color: #9A616D;">
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center h-90">
@@ -60,4 +65,4 @@ include_once __DIR__ . '/../partials/header.php';
 </section>
 <br>
 <hr>
-<?php include_once '/../partials/footer.php' ?>
+<?php include('../partials/footer.php') ?>
