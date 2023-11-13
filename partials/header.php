@@ -1,6 +1,8 @@
 <?php
+
+
 require_once '../bootstrap.php';
-include __DIR__ . '/../function.php';
+
 
 use CT275\Labs\dien_thoai;
 use CT275\Labs\loai_dien_thoai;
@@ -127,12 +129,29 @@ if(isset($_SESSION['carts'])){
                 </button>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="login.php">Đăng nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active me-3" href="signup.php">Đăng ký</a>
-                        </li>
+                        <?php if(!isset($_SESSION['ten'])) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="login.php">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="signup.php">Đăng ký</a>
+                            </li>
+                        <?php endif ?>
+                        <?php if(isset($_SESSION['ten'])) : ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active item-header_user dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: #F2B686;">
+                                    <i class="fa-regular fa-user"></i> <?php echo $_SESSION['ten'] ?>
+                                </a>
+                            
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="min-width: 8rem;">
+                                    <li>
+                                        <form action="<?= BASE_URL_PATH . 'logout.php' ?>" method="post">
+                                            <input type="submit" class="btn btn-danger btn-block mx-3" value="Đăng Xuất">
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>
