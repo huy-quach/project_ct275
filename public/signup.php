@@ -4,15 +4,17 @@ include('../partials/header.php');
 use CT275\Labs\khach_hang;
 
 $errors = [];
-
+$dangky = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$khach_hang = new khach_hang($PDO);
 	$khach_hang->fill($_POST);
+
 	if ($khach_hang->validate()) {
 		if($khach_hang->save()){
             $message = "Bạn đã đăng ký thành công";
             $alertClass = 'alert-success';
+            $dangky = true;
         }
 	} else {
         $message = "Bạn đã đăng ký không thành công";
@@ -34,13 +36,6 @@ $pageTitle = "Đăng ký";
 ?>
 <title><?php echo $pageTitle; ?></title>
 
-<?php if (isset($message)) : ?>
-    <!-- nếu có lỗi thì hiện thông báo lỗi -->
-    <div class="alert <?= $alertClass ?>">
-        <?= $message ?>
-    </div> 
-<?php endif ?>
-
 
 <section class="vh-5 py-5" style="background-color: #9A616D;">
     <div class="container">
@@ -54,42 +49,55 @@ $pageTitle = "Đăng ký";
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
-                                <form method="post">
-                                    <div class="d-flex align-items-center mb-3 pb-1">
-                                        <i class="fas fa-id-card-alt fa-2x me-3" style="color: #000;"></i>
-                                        <span class="h1 fw-bold mb-0">Đăng ký</span>
-                                    </div>
+                                <div class="d-flex align-items-center mb-3 pb-1">
+                                    <i class="fas fa-id-card-alt fa-2x me-3" style="color: #000;"></i>
+                                    <span class="h1 fw-bold mb-0">Đăng ký</span>
+                                </div>
 
-                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Đăng ký tài khoản của
-                                        bạn!!!</h5>
+                                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Đăng ký tài khoản của
+                                    bạn!!!</h5>
+                                <?php if ($dangky): ?>
+                                <h2 class="text-success text-center">Đăng ký thành công!</h2>
+                                <br>
+                                <div class="d-flex justify-content-center text-center">
+                                    <a href="index.php" class="btn btn-success me-2">Trở về</a>
+                                    <a href="login.php" class="btn btn-primary">Đăng nhập</a>
+                                </div>
+                                <?php else: ?>
+                                <?php if ($errors): ?>
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <?php foreach ($errors as $error): ?>
+                                        <li><?php echo $error; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+                                <form method="post" action="signup.php">
                                     <label class="form-label">Họ tên</label>
                                     <div class="mb-4">
                                         <input type="text" class="form-control form-control-lg" name="ten"
-                                            placeholder="Tên tài khoản của bạn..." />
+                                            placeholder="Tên tài khoản của bạn..." required />
                                     </div>
-                                    <label class="form-label">Tài khoản</label>
+                                    <label class="form-label">Email</label>
                                     <div class="mb-4">
                                         <input type="email" class="form-control form-control-lg" name="email"
-                                            placeholder="Email của bạn..." />
+                                            placeholder="Email của bạn..." required />
                                     </div>
                                     <label class="form-label">Số điện thoại</label>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control form-control-lg" name="so_dt"
-                                            placeholder="Số điện thoại..." />
+                                        <input type="tel" class="form-control form-control-lg" name="so_dt"
+                                            placeholder="Số điện thoại..." required />
                                     </div>
+                                    <label class="form-label">Địa chỉ:</label>
                                     <div class="mb-4">
                                         <input type="text" class="form-control form-control-lg" name="dia_chi"
-                                            placeholder="Địa chỉ của bạn..." />
-                                    </div>
-                                    <label class="form-label">Nhập lại mật khẩu</label>
-                                    <div class="mb-4">
-                                        <input type="password" class="form-control form-control-lg" name="mat_khau"
-                                            placeholder="Mật khẩu của bạn..." />
+                                            placeholder="Địa chỉ của bạn..." required />
                                     </div>
                                     <label class="form-label">Mật khẩu</label>
                                     <div class="mb-4">
                                         <input type="password" class="form-control form-control-lg" name="mat_khau"
-                                            placeholder="Mật khẩu của bạn..." />
+                                            placeholder="Mật khẩu của bạn..." required />
                                     </div>
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-primary btn-lg btn-block" type="submit">Đăng
@@ -99,7 +107,7 @@ $pageTitle = "Đăng ký";
                                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Bạn đã có tài khoản? <a
                                             href="login.php" style="color: #393f81; ">Đăng nhập ngay</a></p>
                                 </form>
-
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

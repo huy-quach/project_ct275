@@ -72,13 +72,13 @@ $pageTitle = "Đăng nhập";
                                         khoản của bạn!!!</h5>
 
                                     <div class="mb-4">
-                                        <input type="email" class="form-control form-control-lg" name="email" 
-                                            placeholder="Điền Email của bạn..." >
+                                        <input type="email" class="form-control form-control-lg" name="email"
+                                            placeholder="Điền Email của bạn...">
                                     </div>
 
                                     <div class="mb-4">
                                         <input type="password" class="form-control form-control-lg" name="mat_khau"
-                                            placeholder="Điền mật khẩu của bạn..." >
+                                            placeholder="Điền mật khẩu của bạn...">
                                     </div>
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-primary btn-lg btn-block" type="submit">Đăng

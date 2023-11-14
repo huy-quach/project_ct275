@@ -74,11 +74,9 @@ class khach_hang{
 			$this->errors['dia_chi'] = 'Địa chỉ không được rỗng.';
 		}
 
-		$validso_dt = preg_match(
-            '/^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b$/',
-            $this->so_dt
-        );
-        if (!$validso_dt) {
+		$phoneLength = strlen($this->so_dt);
+
+        if ($phoneLength < 9 || $phoneLength > 10) {
             $this->errors['so_dt'] = 'Số điện thoại không hợp lệ.';
         }
 
@@ -123,37 +121,51 @@ class khach_hang{
 
 	public function save()
 	{
-		$result = false;
-		if ($this->id >= 0) {
-			$stmt = $this->db->prepare(
-				'update khach_hang set email = :email,
-					mat_khau = :mat_khau where id = :id'
-			);
-			$result = $stmt->execute([
-				'ten' => $this->ten,
-				'email' => $this->email,
-				'mat_khau' => $this->mat_khau,
-				'id' => $this->id
-			]);
-		} else {
-			$stmt = $this->db->prepare(
-				'insert into khach_hang (
-					ten,dia_chi,so_dt,email, mat_khau) 
-					values (:ten,:dia_chi,:so_dt,:email, :mat_khau)'
-			);
-			$result = $stmt->execute([
-				'email' => $this->email,
-				'mat_khau' => $this->mat_khau,
-				'ten' => $this->ten,
-				'dia_chi' => $this->dia_chi,
-				'so_dt' => $this->so_dt,
-			]);
-			if ($result) {
-				$this->id = $this->db->lastInsertId();// lay id giao dich cuoi cung
+		try {
+			if ($this->id >= 0) {
+				$stmt = $this->db->prepare(
+					'UPDATE khach_hang SET 
+						ten = :ten,
+						dia_chi = :dia_chi,
+						so_dt = :so_dt,
+						email = :email,
+						mat_khau = :mat_khau 
+					WHERE id = :id'
+				);
+				$result = $stmt->execute([
+					'ten' => $this->ten,
+					'dia_chi' => $this->dia_chi,
+					'so_dt' => $this->so_dt,
+					'email' => $this->email,
+					'mat_khau' => $this->mat_khau,
+					'id' => $this->id
+				]);
+			} else {
+				$stmt = $this->db->prepare(
+					'INSERT INTO khach_hang (ten, dia_chi, so_dt, email, mat_khau) 
+					 VALUES (:ten, :dia_chi, :so_dt, :email, :mat_khau)'
+				);
+				$result = $stmt->execute([
+					'ten' => $this->ten,
+					'dia_chi' => $this->dia_chi,
+					'so_dt' => $this->so_dt,
+					'email' => $this->email,
+					'mat_khau' => $this->mat_khau,
+				]);
+				if ($result) {
+					$this->id = $this->db->lastInsertId();
+				}
 			}
+	
+			return $result;
+		} catch (PDOException $e) {
+			// Log or handle the database error as needed
+			error_log($e->getMessage());
+			return false;
 		}
-		return $result;
 	}
+	
+	
 	public function find($id)
 	{
 		$stmt = $this->db->prepare('select * from khach_hang where id = :id');

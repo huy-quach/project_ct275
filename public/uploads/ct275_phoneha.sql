@@ -22,7 +22,9 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
-
+INSERT INTO `admin` (`id`,`ten`,`email`,`mat_khau`) VALUES
+('1','huy','huy@gmail.com','123'),
+('2','anh','anh@gmail.com','123');
 --
 -- Cấu trúc bảng cho bảng `dien_thoai`
 --
