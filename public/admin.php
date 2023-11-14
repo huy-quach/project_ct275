@@ -5,6 +5,7 @@ include '../partials/header.php';
 use CT275\Labs\dien_thoai;
 
 $dien_thoai = new dien_thoai($PDO); 
+$dien_thoais = $dien_thoai->all();
 
 if (!isset($_SESSION['admin_formdb'])) {
     echo('<div style="height: 300px; margin-top:150px;margin:" class="text-center">
@@ -91,28 +92,36 @@ body {
                         <th scope="col">Hành động</th>
                     </tr>
                 </thead>
-                <tbody class="font-weight-bold">
+                <tbody class="font-weight-bold align-middle">
                     <?php $i = 1; ?>
                     <?php foreach ($dien_thoais as $dien_thoai) : ?>
                     <tr>
                         <th scope="row"><?php echo $i++; ?></th>
                         <td><?= htmlspecialchars($dien_thoai->getID()) ?></td>
-                        <td><?= htmlspecialchars($dien_thoai->ten_dien_thoai) ?></td>
-                        <td><?= htmlspecialchars($dien_thoai->gia) . 'vnđ' ?></td>
+                        <td><?= htmlspecialchars($dien_thoai->ten) ?></td>
+                        <td><?= htmlspecialchars(number_format($dien_thoai->gia, 0, ',', '.')) . 'vnđ' ?></td>
                         <td><img style="width: 200px;" src="uploads/<?=$dien_thoai->hinh ?>" alt="..." /></td>
 
-                        <td><?php
+                        <td>
+                            <?php
                                    if ($dien_thoai->id_loai == 1) {
-                                       echo ("Laptop");
-                                   } if ($dien_thoai->id_loai == 2) {
-                                       echo ("SamSung");
-                                   } else if ($dien_thoai->id_loai == 3) {
-                                       echo ("Iphone");
-                                   }
-                                   ?></td>
+                                        echo ("IPHONE");
+                                        
+                                    } else if ($dien_thoai->id_loai == 2) {
+                                        echo ("SAMSUNG");
+                                        
+                                    } else if ($dien_thoai->id_loai == 3) {
+                                        echo ("OPPO");
+                                    
+                                    } else {
+                                        echo ("XIAOMI");
+                                    
+                                    }
+                            ?>
+                        </td>
 
-                        <td><?= htmlspecialchars($dien_thoai->so_luong_hang) ?></td>
-                        <td><?= date("d-m-Y", strtotime($dien_thoai->ngaynhap)) ?></td>
+                        <td><?= htmlspecialchars($dien_thoai->so_luong) ?></td>
+                        <td><?= date("d-m-Y", strtotime($dien_thoai->ngay_nhap)) ?></td>
                         <td>
                             <a href="<?= BASE_URL_PATH . 'sua.php?id=' . $dien_thoai->getId() ?>"
                                 class="btn btn-xs btn-warning">
@@ -139,7 +148,7 @@ body {
                                             </div>
                                             <div class="modal-body">
                                                 Bạn có chắc muốn xóa sản phẩm <span
-                                                    class="text-danger"><?= $dien_thoai->ten_dien_thoai ?></span>?
+                                                    class="text-danger"><?= $dien_thoai->ten ?></span>?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

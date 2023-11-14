@@ -38,7 +38,8 @@ include '../partials/header.php';
 <main class="container">
 	<section class="nav--product row ">
 	<div class=" col-7 mt-4 mb-4">
-			<h7><a  style ="text-decoration : none;" class="text-black font-weight-bold" href="index.php">Trang chủ</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a  style ="text-decoration : none;" class="text-black font-weight-bold" href="admin.php">Admin</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a style ="text-decoration : none;" class="text-secondary" href="">Thêm sản phẩm</a></h7>
+			<h7><a  style ="text-decoration : none;" class="text-black font-weight-bold" href="index.php">Trang chủ</a> 
+				<i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a  style ="text-decoration : none;" class="text-black font-weight-bold" href="admin.php">Admin</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a style ="text-decoration : none;" class="text-secondary" href="">Thêm sản phẩm</a></h7>
 		</div>
 		<div class=" col-12">
 			<h5 class="text-center mt-4 display-6 font-weight-bold"><div class="text-black" href="">Thêm sản phẩm</div> </h5>
@@ -93,7 +94,7 @@ include '../partials/header.php';
 				<label class="form-label display-7 font-weight-bold "  for="loai_dien_thoai">Loại sản phẩm</label>
 				<select name="id_loai" class="form-control">
 					<?php foreach ($loai_dien_thoais as $loai_dien_thoai) : ?>
-							<option value=" <?= $loai_dien_thoai->id ?>"> <?= $loai_dien_thoai->ten_loai ?></option>
+							<option value=" <?= $loai_dien_thoai->id_loai ?>"> <?= $loai_dien_thoai->ten_loai ?></option>
 					<?php endforeach ?>
 				</select>
 			</div>

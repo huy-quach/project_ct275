@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $admin_formdb->email;
         $_SESSION['mat_khau'] = $admin_formdb->mat_khau;
        $_SESSION['ten'] = $admin_formdb->ten;
-        redirect('quantri.php');
+        redirect('admin.php');
        }    
     endforeach;
 }
