@@ -23,6 +23,8 @@ $pageTitle = "Admin";
 ?>
 
 <title><?php echo $pageTitle; ?></title>
+
+
 <style>
 body {
     background-color: #f8f9fa;
@@ -35,35 +37,31 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
-
 .nav--product a {
     color: #ffffff;
     text-decoration: none;
 }
-
 .nav--product a:hover {
     text-decoration: underline;
 }
-
 .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
 }
-
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
 }
-
 .table th,
 .table td {
     text-align: center;
 }
-
 .modal-body {
     font-size: 16px;
 }
 </style>
+
+
 <section class="py-5">
     <main class="container">
         <form class="nav--product row mb-4" action="khach_hang.php" method="post">

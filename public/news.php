@@ -367,7 +367,6 @@ $pageTitle = "Tin tức";
                 </div>
             </div>
         </section>
-    <hr>
     <!-- End Content Main -->
 <!-- Footer  -->
 <?php include('../partials/footer.php') ?>

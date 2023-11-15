@@ -49,9 +49,57 @@ $pageTitle = "Trang chủ";
         </div>
 </div>
 
-
+<div class="container">
+    <div class="container-fluid container-search container-index facts my-5 p-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-xl-3 wow fadeIn"
+                style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                <div class="text-center border p-5">
+                    <i class="fa fa-certificate text-dark fa-3x mb-3"></i>
+                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">
+                        <div class="div-animation-1">
+                        </div>
+                    </h1>
+                    <span class="fs-5 fw-semi-bold text-dark">Sản phẩm</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 wow fadeIn"
+                style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+                <div class="text-center border p-5">
+                    <i class="fa fa-users-cog fa-3x text-dark  mb-3"></i>
+                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">
+                        <div class="div-animation-2">
+                        </div>
+                    </h1>
+                    <span class="fs-5 fw-semi-bold text-dark ">Nhân viên</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 wow fadeIn"
+                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="text-center border p-5">
+                    <i class="fa fa-users fa-3x text-dark  mb-3"></i>
+                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">
+                        <div class="div-animation-3">
+                        </div>
+                    </h1>
+                    <span class="fs-5 fw-semi-bold text-dark ">Chi nhánh</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 wow fadeIn"
+                style="visibility: visible; animation-delay: 0.7s; animation-name: fadeIn;">
+                <div class="text-center border p-5">
+                    <i class="fa fa-check-double fa-3x text-dark  mb-3"></i>
+                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">
+                        <div class="div-animation-4">
+                        </div>
+                    </h1>
+                    <span class="fs-5 fw-semi-bold text-dark ">Sản phấm mới</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- End Content Main  -->
 <!-- Footer  -->
-<hr>
 <?php include('../partials/footer.php') ?>
