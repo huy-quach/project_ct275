@@ -52,10 +52,10 @@ include '../partials/header.php';
 			<!-- Name -->
 			<div class="form-group">
 				<label class="form-label display-7 font-weight-bold "  for="ten_dien_thoai" >Tên sản phẩm</label>
-				<input type="text" name="ten_dien_thoai" class="form-control is-invalid" maxlen="255" id="ten_dien_thoai" placeholder="Nhập tên sản phẩm..." value="<?= isset($_POST['ten_dien_thoai']) ? htmlspecialchars($_POST['ten_dien_thoai']) : '' ?>" required>
-				<?php if (isset($errors['ten_dien_thoai'])) : ?>
+				<input type="text" name="ten" class="form-control is-invalid" maxlen="255" id="ten" placeholder="Nhập tên sản phẩm..." value="<?= isset($_POST['ten']) ? htmlspecialchars($_POST['ten']) : '' ?>" required>
+				<?php if (isset($errors['ten'])) : ?>
 					<div class="invalid-feedback">
-						<?= htmlspecialchars($errors['ten_dien_thoai']) ?>
+						<?= htmlspecialchars($errors['ten']) ?>
 					</div>
 				<?php endif ?>
 			</div>
@@ -80,15 +80,6 @@ include '../partials/header.php';
 					</div>
 				<?php endif ?>
 			</div>
-			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="mo_ta" class="form-label">Mô tả sản phẩm</label>
-				<input type="text" name="mo_ta" class="form-control is-invalid" maxlen="255" id="mo_ta" placeholder="Nhập mô tả sản phẩm..." value="<?= isset($_POST['mo_ta']) ? htmlspecialchars($_POST['mo_ta']) : '' ?>" required>
-				<?php if (isset($errors['mo_ta'])) : ?>
-					<div class="invalid-feedback">
-						<?= htmlspecialchars($errors['mo_ta']) ?>
-					</div>
-				<?php endif ?>
-			</div>
 			
 			<div class="form-group">
 				<label class="form-label display-7 font-weight-bold "  for="loai_dien_thoai">Loại sản phẩm</label>
@@ -99,12 +90,12 @@ include '../partials/header.php';
 				</select>
 			</div>
 			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="so_luong_hang">Số lượng</label>
+				<label class="form-label display-7 font-weight-bold "  for="so_luong">Số lượng</label>
 
-				<input type="number" min="1" name="so_luong_hang" class="form-control is-invalid" maxlen="255" id="phone" placeholder="Nhập số lượng sản phẩm... " value="<?= isset($_POST['so_luong_hang']) ? htmlspecialchars($_POST['so_luong_hang']) : '' ?>" required>
-				<?php if (isset($errors['so_luong_hang'])) : ?>
+				<input type="number" min="1" name="so_luong" class="form-control is-invalid" maxlen="255" id="phone" placeholder="Nhập số lượng sản phẩm... " value="<?= isset($_POST['so_luong']) ? htmlspecialchars($_POST['so_luong']) : '' ?>" required>
+				<?php if (isset($errors['so_luong'])) : ?>
 					<div class="invalid-feedback">
-						<strong><?= htmlspecialchars($errors['so_luong_hang']) ?></strong>
+						<strong><?= htmlspecialchars($errors['so_luong']) ?></strong>
 					</div>
 				<?php endif ?>
 			</div>

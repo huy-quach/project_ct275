@@ -45,7 +45,7 @@ include '../partials/header.php';
 			<h7><a  style ="text-decoration : none;" class="text-black font-weight-bold" href="index.php">Trang chủ</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a  style ="text-decoration : none;" class="text-black font-weight-bold" href="admin.php">Admin</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i><a  style ="text-decoration : none;" class="text-secondary" href="">Chỉnh sửa sản phẩm</a></h7>
 		</div>
 		<div class=" col-12">
-			<h5 class="text-center mt-4 display-6 font-weight-bold"><div class="text-black" href="">Chỉnh sản phẩm <span class="text-warning"><?=$dien_thoai->ten_dien_thoai ?></span></div> </h5>
+			<h5 class="text-center mt-4 display-6 font-weight-bold"><div class="text-black" href="">Chỉnh sản phẩm <span class="text-warning"><?=$dien_thoai->ten ?></span></div> </h5>
 		</div>
 	</section>
 	<section class="row pb-5">
@@ -56,11 +56,11 @@ include '../partials/header.php';
 			<input type="hidden" name="ten_loai" value="<?= htmlspecialchars($dien_thoai->ten_loai) ?>">
 			<!-- Name -->
 			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="ten_dien_thoai" >Tên sản phẩm</label>
-				<input type="text" name="ten_dien_thoai" class="form-control is-invalid" maxlen="255" id="ten_dien_thoai" placeholder="Nhập tên sản phẩm..." value="<?= htmlspecialchars($dien_thoai->ten_dien_thoai) ?>" required>
-				<?php if (isset($errors['ten_dien_thoai'])) : ?>
+				<label class="form-label display-7 font-weight-bold "  for="ten" >Tên sản phẩm</label>
+				<input type="text" name="ten" class="form-control is-invalid" maxlen="255" id="ten" placeholder="Nhập tên sản phẩm..." value="<?= htmlspecialchars($dien_thoai->ten) ?>" required>
+				<?php if (isset($errors['ten'])) : ?>
 					<div class="invalid-feedback">
-						<?= htmlspecialchars($errors['ten_dien_thoai']) ?>
+						<?= htmlspecialchars($errors['ten']) ?>
 					</div>
 				<?php endif ?>
 			</div>
@@ -75,35 +75,11 @@ include '../partials/header.php';
 				<?php endif ?>
 			</div>
 			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="ten">Hình ảnh</label>
+				<label class="form-label display-7 font-weight-bold "  for="hinh">Hình ảnh</label>
 				<input type="file" name="hinh" class="form-control is-invalid" maxlen="255" id="name" placeholder="Nhập hình ảnh sản phẩm..." value="adad.pdf" required >
-				<script>
-					// Get a reference to our file input
-					const fileInput = document.querySelector('input[type="file"]');
-
-					// Create a new File object
-					const myFile = new File(['Hello World!'], '<?= $dien_thoai->hinh ?>', {
-						type: 'text/plain',
-						lastModified: new Date(),
-					});
-
-					// Now let's create a DataTransfer to get a FileList
-					const dataTransfer = new DataTransfer();
-					dataTransfer.items.add(myFile);
-					fileInput.files = dataTransfer.files;
-				</script>
 				<?php if (isset($errors['hinh'])) : ?>
 					<div class="invalid-feedback">
 						<strong><?= htmlspecialchars($errors['hinh']) ?></strong>
-					</div>
-				<?php endif ?>
-			</div>
-			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="mo_ta" class="form-label">Mô tả sản phẩm</label>
-				<input type="text" name="mo_ta" class="form-control is-invalid" maxlen="255" id="mo_ta" placeholder="Nhập mô tả sản phẩm..." value="<?= htmlspecialchars($dien_thoai->mo_ta) ?>" required>
-				<?php if (isset($errors['mo_ta'])) : ?>
-					<div class="invalid-feedback">
-						<?= htmlspecialchars($errors['mo_ta']) ?>
 					</div>
 				<?php endif ?>
 			</div>
@@ -119,19 +95,19 @@ include '../partials/header.php';
                                        echo ("Iphone");
                                    } ?></option>
 					<?php foreach ($loai_dien_thoais as $loai_dien_thoai) : ?>
-						<?php if ($dien_thoai->id_loai != $loai_dien_thoai->id) : ?>
-							<option value=" <?= $loai_dien_thoai->id ?>"> <?= $loai_dien_thoai->ten_loai ?></option>
+						<?php if ($dien_thoai->id_loai != $loai_dien_thoai->id_loai) : ?>
+							<option value=" <?= $loai_dien_thoai->id_loai ?>"> <?= $loai_dien_thoai->ten_loai ?></option>
 						<?php endif ?>
 					<?php endforeach ?>
 				</select>
 			</div>
 			<div class="form-group">
-				<label class="form-label display-7 font-weight-bold "  for="so_luong_hang">Số lượng</label>
+				<label class="form-label display-7 font-weight-bold "  for="so_luong">Số lượng</label>
 
-				<input type="number" min="1" name="so_luong_hang" class="form-control is-invalid" maxlen="255" id="phone" placeholder="Nhập số lượng sản phẩm... " value="<?= htmlspecialchars($dien_thoai->so_luong_hang)?>" required>
-				<?php if (isset($errors['so_luong_hang'])) : ?>
+				<input type="number" min="1" name="so_luong" class="form-control is-invalid" maxlen="255" id="phone" placeholder="Nhập số lượng sản phẩm... " value="<?= htmlspecialchars($dien_thoai->so_luong)?>" required>
+				<?php if (isset($errors['so_luong'])) : ?>
 					<div class="invalid-feedback">
-						<strong><?= htmlspecialchars($errors['so_luong_hang']) ?></strong>
+						<strong><?= htmlspecialchars($errors['so_luong']) ?></strong>
 					</div>
 				<?php endif ?>
 			</div>
