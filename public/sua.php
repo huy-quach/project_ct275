@@ -88,12 +88,14 @@ include '../partials/header.php';
 				<label class="form-label display-7 font-weight-bold "  for="loai_dien_thoai">Loại sản phẩm</label>
 				<select name="id_loai" class="form-control">
 					<option value=" <?= $dien_thoai->id_loai ?>" selected> <?php  if ($dien_thoai->id_loai == 1) {
-                                       echo ("Laptop");
+                                       echo ("IPHONE");
                                    } if ($dien_thoai->id_loai == 2) {
-                                       echo ("SamSung");
+                                       echo ("SAMSUNG");
                                    } else if ($dien_thoai->id_loai == 3) {
-                                       echo ("Iphone");
-                                   } ?></option>
+                                       echo ("OPPO");
+                                   } else if ($dien_thoai->id_loai == 4) {
+										echo ("XIAOMI");
+								   }?></option>
 					<?php foreach ($loai_dien_thoais as $loai_dien_thoai) : ?>
 						<?php if ($dien_thoai->id_loai != $loai_dien_thoai->id_loai) : ?>
 							<option value=" <?= $loai_dien_thoai->id_loai ?>"> <?= $loai_dien_thoai->ten_loai ?></option>
