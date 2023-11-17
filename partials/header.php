@@ -58,7 +58,6 @@ if(isset($_SESSION['carts'])){
         text-decoration: none;
 
     }
-
     .user-dropdown {
         right: 0;
         left: auto;

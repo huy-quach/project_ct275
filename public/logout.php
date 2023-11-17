@@ -34,7 +34,7 @@ include '../partials/header.php';
           <p> Bạn đã đăng xuất thành công</p>
         </h1>
         <a href="index.php"> <button class="btn btn-primary">Đi đến trang chủ</button></a>
-        <a href="product.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+        <a href="menu.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>
 
       </div>
 
